@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, computed, EventEmitter, Input, Output, signal} from '@angular/core';
+import {ChangeDetectionStrategy, Component, computed, EventEmitter, Input, Output} from '@angular/core';
 import {WidgetTypeAndProject} from '../../model/dashboardModel';
 import {MatProgressBar} from '@angular/material/progress-bar';
 import {DatePipe} from '@angular/common';
