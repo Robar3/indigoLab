@@ -1,0 +1,18 @@
+#header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-image: url("/assets/139825.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  z-index: 1000;
+  height: 70px;
+}
+
+
+main{
+  padding-top: 100px;
+  margin: 0 10px;
+}
+

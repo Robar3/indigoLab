@@ -1,0 +1,29 @@
+<div class="widget">
+  <mat-icon class="widget-delete" matTooltip="Удалить" (click)="delete()">delete</mat-icon>
+  <h3>{{ widget.project.name }}</h3>
+
+  @if (widget.widgetTypes === 'progress') {
+    <div class="progress-container">
+      <mat-progress-bar
+        mode="determinate"
+        [value]="progress()"
+        color="primary"
+      ></mat-progress-bar>
+      <span class="progress-text">{{ progress() }}% завершено</span>
+    </div>
+  }
+
+  @if (widget.widgetTypes === 'taskStats') {
+    <div>
+      <p>Завершено задач: {{ widget.project.tasksCompleted }} из {{ widget.project.tasksTotal }}</p>
+      <p>Осталось задач: {{ widget.project.tasksTotal - widget.project.tasksCompleted }}</p>
+    </div>
+  }
+
+  @if (widget.widgetTypes === 'dates') {
+    <div>
+      <p>Дата начала: {{ widget.project.startDate | date }}</p>
+      <p>Дата завершения: {{ widget.project.endDate | date }}</p>
+    </div>
+  }
+</div>

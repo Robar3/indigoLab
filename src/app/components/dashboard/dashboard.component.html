@@ -1,0 +1,9 @@
+<div class="add-button-container">
+  <button class="add-button" (click)="addWidget()">Добавить виджет</button>
+</div>
+<div cdkDropList class="widget-list" (cdkDropListDropped)="drop($event)">
+  <div *ngFor="let widget of widgets(); let i = index" cdkDrag>
+    <app-widget [widget]="widget" (widgetDelete)="removeWidget($event)"></app-widget>
+  </div>
+</div>
+

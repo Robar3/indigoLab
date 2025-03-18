@@ -1,0 +1,32 @@
+<h2 mat-dialog-title>Добавить виджет</h2>
+<mat-dialog-content>
+  <form>
+    <mat-form-field appearance="fill">
+      <mat-label>Выберите проект</mat-label>
+      <mat-select [(ngModel)]="selectedProject" name="project">
+        @for (project of projects(); track project.id) {
+          <mat-option [value]="project">
+            {{ project.name }}
+          </mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+
+    <mat-form-field appearance="fill">
+      <mat-label>Выберите тип виджета</mat-label>
+      <mat-select [(ngModel)]="widgetType" name="widgetType">
+        <mat-option value="progress">Прогресс выполнения</mat-option>
+        <mat-option value="taskStats">Статистика по задачам</mat-option>
+        <mat-option value="dates">Даты начала и завершения</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onNoClick()">Отмена</button>
+  <button mat-button color="primary" (click)="addWidget()" [disabled]="!selectedProject() || !widgetType()">
+    Добавить
+  </button>
+</mat-dialog-actions>
