@@ -5,6 +5,7 @@ import { AddWidgetDialogComponent } from '../add-widget-dialog/add-widget-dialog
 import {NgForOf} from '@angular/common';
 import {WidgetComponent} from '../widget/widget.component';
 import { WidgetTypeAndProject} from '../../model/dashboardModel';
+import { UUID } from "uuidjs";
 
 @Component({
   selector: 'app-dashboard',
@@ -51,7 +52,7 @@ export class DashboardComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.widgets.set([...this.widgets(),{
-          id:this.widgets().length ===0?1:this.widgets()[this.widgets().length - 1].id+1,
+          id:UUID.generate(),
           project: result.project,
           widgetTypes: result.type
         }])
@@ -60,7 +61,7 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  removeWidget(widgetId: number): void {
+  removeWidget(widgetId: string): void {
     this.widgets.set(this.widgets().filter(widget => widget.id !== widgetId));
     this.saveWidgets();
   }

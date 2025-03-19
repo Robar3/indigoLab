@@ -9,7 +9,7 @@ export type Project = {
 export type WidgetType = "progress" | "taskStats" | 'dates';
 
 export type WidgetTypeAndProject = {
-  id: number;
+  id: string;
   project: Project;
   widgetTypes: WidgetType;
 }
